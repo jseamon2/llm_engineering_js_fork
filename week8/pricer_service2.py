@@ -21,7 +21,7 @@ FINETUNED_MODEL = f"{HF_USER}/{PROJECT_RUN_NAME}"
 CACHE_DIR = "/cache"
 
 # Change this to 1 if you want Modal to be always running, otherwise it will go cold after 2 mins
-MIN_CONTAINERS = 0
+# MIN_CONTAINERS = 0
 
 QUESTION = "How much does this cost to the nearest dollar?"
 PREFIX = "Price is $"
@@ -33,7 +33,7 @@ hf_cache_volume = Volume.from_name("hf-hub-cache", create_if_missing=True)
     secrets=secrets, 
     gpu=GPU, 
     timeout=1800,
-    min_containers=MIN_CONTAINERS,
+    # min_containers=MIN_CONTAINERS,
     volumes={CACHE_DIR: hf_cache_volume}
 )
 class Pricer:
